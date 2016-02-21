@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" id="idForShowingWorkaround">
+		<h:form id="dlg2Form">
+			Pop up the options lists by either writing something in the autocomplete box or by attempting to select something from
+			the selectonemenu. <br />
+			<br />
+			Then scroll down and you will see the menus go up. <br />
+			<br />
+
+			Autocomplete presents an issue: <br />
+			<p:autoComplete
+				id="acSimple"
+				value="#{mockDataBean.selectedValue}"
+				completeMethod="#{mockDataBean.onAutocomplete}"
+			/>
+			<br />
+
+			<br />
+
+			SelectOneMenu also presents the issue: <br />
+			<p:selectOneMenu id="car" value="#{mockDataBean.selectedValue}">
+				<f:selectItems value="#{mockDataBean.listValues}" />
+			</p:selectOneMenu>
+			<br />
+
+		</h:form>
+	</p:dialog>
+
+</ui:composition>

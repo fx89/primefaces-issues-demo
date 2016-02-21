@@ -1,0 +1,13 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+	<p:commandButton value="Modal dialog not showing" type="button" onclick="PF('dlg2').show();" />
+	<br />
+
+	<p:commandButton value="Modal dialog showing with workaround" type="button" onclick="PF('dlg2').show(); $(idForShowingWorkaround).css('top', '20px')" />
+	<br />
+
+</ui:composition>
