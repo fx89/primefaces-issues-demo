@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+
+<f:metadata>
+	<f:viewAction action="#{mockDataBean.init}" />
+</f:metadata>
+
+<h:head>
+	<title>PF SANDBOX - Autocomplete style issue</title>
+</h:head>
+<h:body style="background-color:#FFF; color:#000">
+
+	<ui:include src="index/description.xhtml" />
+
+
+	<h:form id="autocompleteForm">
+
+		Autocomplete applies the style to a wrapper span instead of the input control <br />
+		<p:autoComplete
+			style="border: 1px solid #000; width:800px"
+			value="#{mockDataBean.selectedValue}" completeMethod="#{mockDataBean.onAutocomplete}"
+		/><br />
+		<br />
+
+		SelectOneMenu applies the style to the input control instead of the container which includes the selection button - this is a huge issue when trying to make a form in which all controls must have the same width - changing the theme would mean having to go through all the forms and re-work the new widths <br />
+		<p:selectOneMenu
+			style="border: 1px solid #000; width:800px"
+			value="#{mockDataBean.selectedValue}"
+		>
+			<f:selectItems value="#{mockDataBean.listValues}" />
+		</p:selectOneMenu><br />
+		<br />
+
+		Calendar simply ignores the width somehow <br />
+		<p:calendar style="border: 1px solid #000; width:800px" />
+
+	</h:form>
+
+</h:body>
+</html>
